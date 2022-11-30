@@ -1,0 +1,74 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class EBCal
+{
+   public static void main(String args[])
+     {
+       Abc obj=new Abc();
+     }
+}
+
+class Abc extends JFrame implements ActionListener
+{
+  JLabel l1;
+  JTextField t1;
+  JLabel l2;
+  JTextField t2;
+  JButton b;
+ // JLabel l3;
+
+  public Abc()
+   {
+     setLayout(new FlowLayout());
+
+     l1=new JLabel("Enter the no of units :");
+     t1=new JTextField(20); 
+     
+     l2=new JLabel("Amount");
+     t2=new JTextField(20);
+     
+     b=new JButton("Enter");
+
+     //l3=new JLabel("Result");
+     
+     add(l1);
+     add(t1);
+    add(l2);
+     add(t2);
+     add(b);
+     //add(l3);
+
+     b.addActionListener(this);
+          
+     setVisible(true);
+     setSize(250,400);
+
+     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }
+
+ public void actionPerformed(ActionEvent ae)
+  {
+    int units=Integer.parseInt(t1.getText());
+    int value=0;
+   // int num2=Integer.parseInt(t2.getText());
+    if(units < 100)  
+    {  
+        value = units * 0;  
+    }  
+   
+    else if(units < 300){ 
+    	value = 100 * 0 + (units-100) * 2;  
+    }  
+
+    else if(units >= 300)  
+    {  
+    	value = 100 * 0 + (units-100) * 3;  
+    }  
+    //int value=num1 * 2;
+    t2.setText(""+ value);
+    //l3.setText(""+value);
+  }
+
+}
